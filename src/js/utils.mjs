@@ -85,3 +85,11 @@ export function toggleMenu(buttonSelector, navigationSelector) {
         console.error(`Button selector: ${buttonSelector}, Navigation selector: ${navigationSelector}`);
     }
 }
+
+// Funtion to add a favorites list
+export async function addToFavorites(breed) {
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  favorites.push(breed);
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+  alert(`${breed.name} has been added to favorites!`);
+}
